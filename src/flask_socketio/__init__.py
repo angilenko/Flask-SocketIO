@@ -457,8 +457,8 @@ class SocketIO(object):
                 # we only use it if the emit was issued from a Socket.IO
                 # populated request context (i.e. request.sid is defined)
                 callback = _callback_wrapper
-        self.server.emit(event, *args, namespace=namespace, to=to,
-                         skip_sid=skip_sid, callback=callback, **kwargs)
+        return self.server.emit(event, *args, namespace=namespace, to=to,
+                                skip_sid=skip_sid, callback=callback, **kwargs)
 
     def send(self, data, json=False, namespace=None, to=None,
              callback=None, include_self=True, skip_sid=None, **kwargs):
